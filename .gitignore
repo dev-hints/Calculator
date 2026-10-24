@@ -9,6 +9,5 @@
 .externalNativeBuild
 .cxx
 local.properties
-screenshots/
 *.jks
 *.keystore
