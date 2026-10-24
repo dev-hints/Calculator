@@ -7,32 +7,23 @@
 [![Room](https://img.shields.io/badge/Persistence-Room%20SQLite%202.6.1-F4B400.svg?style=flat)](https://developer.android.com/training/data-storage/room)
 [![Offline](https://img.shields.io/badge/Network-100%25%20Offline%20(Zero%20Permissions)-00C853.svg?style=flat)](https://github.com/dev-hints/Calculator)
 
-A precision-crafted native Android calculator application developed under the **StrangeInfinity** brand, inspired by the familiar design language and interaction patterns of Samsung Calculator. Built from the ground up using **Kotlin**, **Jetpack Compose**, **Material 3**, and a custom **high-precision mathematical engine**.
+A precision-crafted native Android calculator application developed under the **StrangeInfinity** brand, inspired by the design language and interaction patterns of Samsung Calculator. Built with **Kotlin**, **Jetpack Compose**, **Material 3**, and a custom **high-precision mathematical engine**.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-| Default Calculator | Calculation (`125 × 8 = 1,000`) | Scientific Mode |
+| Standard Calculator | Scientific Mode | Unit Converter |
 | :---: | :---: | :---: |
-| <img src="screenshots/calculator-main.png" width="240" /> | <img src="screenshots/calculator-calculation.png" width="240" /> | <img src="screenshots/calculator-scientific.png" width="240" /> |
-
-| Calculation History | Unit Converter | AMOLED Dark Theme |
-| :---: | :---: | :---: |
-| <img src="screenshots/calculator-history.png" width="240" /> | <img src="screenshots/calculator-conversion.png" width="240" /> | <img src="screenshots/calculator-dark.png" width="240" /> |
-
-| Landscape Layout (7 Columns) | About StrangeInfinity |
-| :---: | :---: |
-| <img src="screenshots/calculator-landscape.png" width="360" /> | <img src="screenshots/calculator-about.png" width="240" /> |
+| <img src="screenshots/calculator-calculation.png" width="220" /> | <img src="screenshots/calculator-scientific.png" width="220" /> | <img src="screenshots/calculator-conversion.png" width="220" /> |
 
 ---
 
-## ✨ Features
+## Features
 
-### 1. Mathematical Correctness & Precision Engine
-- **High-Precision Decimal Arithmetic**: Powered by `BigDecimal` with `MathContext.DECIMAL128` (34 decimal digits of precision). Eliminates binary floating-point artifacts:
-  - `0.1 + 0.2 = 0.3` (never `0.30000000000000004`).
-- **Comprehensive Percentage Rules**:
+### 1. Mathematical Correctness and Precision Engine
+- **High-Precision Decimal Arithmetic**: Powered by `BigDecimal` with `MathContext.DECIMAL128` (34 decimal digits of precision). Eliminates binary floating-point artifacts such that `0.1 + 0.2 = 0.3`.
+- **Percentage Rules**:
   - Additive: `100 + 25% = 125`
   - Subtractive: `200 - 10% = 180`
   - Multiplicative: `50 × 20% = 10`
@@ -41,47 +32,45 @@ A precision-crafted native Android calculator application developed under the **
 - **Real-Time Live Preview**: Calculates intermediate results dynamically as you type.
 - **Continuous Chaining**: Tapping an operator after `=` automatically continues from the previous calculation result.
 
-### 2. Scientific Calculator (Portrait & Landscape)
-- **Responsive Modes**:
-  - *Portrait*: Smooth expandable panel toggled from the handle toolbar.
-  - *Landscape*: Full 7-column layout (3 scientific columns on the left, 4 standard columns on the right).
-- **Functions**:
+### 2. Scientific Calculator
+- **Toolbar Toggle**: Expandable scientific keypad accessible directly from the main toolbar.
+- **Functions Supported**:
   - Trigonometric: `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `sinh`, `cosh`, `tanh`.
   - Angle Modes: Switchable `Deg` (Degrees) and `Rad` (Radians) with instant recalculation.
-  - Exponents & Roots: `x²`, `x³`, `xʸ`, `√`, `∛`, `10ˣ`, `eˣ`.
+  - Exponents and Roots: `x²`, `x³`, `xʸ`, `√`, `∛`, `10ˣ`, `eˣ`.
   - Logarithms: Natural log (`ln`), common log (`log` / `log10`).
-  - Core Math: Reciprocal (`1/x`), absolute value (`|x|`), and factorial (`x!`) with overflow protection up to $n=1000$.
-  - Constants: $\pi$ and $e$.
-- **Robust Domain Protections**: Safely handles negative square roots, logarithm domain boundaries, tangent singularities, and division by zero with clean, non-crashing inline alerts.
+  - Core Math: Reciprocal (`1/x`), absolute value (`|x|`), and factorial (`x!`) with overflow protection up to n = 1000.
+  - Constants: Pi (π) and Euler's number (e).
+- **Domain Guardrails**: Handles negative roots, logarithm domain boundaries, tangent singularities, and division by zero with clean inline alerts.
 
 ### 3. Persistent Calculation History
 - **Room SQLite Persistence**: Saves expressions, formatted results, and timestamps across application restarts.
 - **Interactive History Sheet**: Tap any entry to reuse the expression or result.
-- **Entry Management**: Delete individual entries or clear all history with a confirmation dialog.
+- **Entry Management**: Delete individual entries or clear all history with confirmation.
 
-### 4. Offline Unit Converter (8 Categories)
+### 4. Offline Unit Converter
 - **100% Offline Execution**: Completely self-contained conversion suite with zero network requirements.
-- **Categories**:
-  - **Length**: Meter, Kilometer, Centimeter, Millimeter, Micrometer, Nanometer, Mile, Yard, Foot, Inch, Nautical Mile.
-  - **Area**: Square Meter, Square Kilometer, Hectare, Acre, Square Mile, Square Yard, Square Foot, Square Inch.
-  - **Volume**: Liter, Milliliter, Cubic Meter, Gallon (US), Quart, Pint, Cup, Fluid Ounce.
-  - **Mass**: Kilogram, Gram, Milligram, Metric Ton, Pound, Ounce, Carat.
-  - **Temperature**: Celsius (°C), Fahrenheit (°F), Kelvin (K) with exact offset conversions.
-  - **Speed**: m/s, km/h, mph, knot, ft/s.
-  - **Time**: Second, Millisecond, Minute, Hour, Day, Week, Year.
-  - **Data Storage**: Byte, Kilobyte (1024 B), Megabyte (1024 KB), Gigabyte (1024 MB), Terabyte, Petabyte.
-- **Custom Keypad & Reversible Swap**: Dedicated numeric keypad with instant swap ($\rightleftarrows$) and one-tap clipboard copy.
+- **Categories (8 Supported)**:
+  - Length: Meter, Kilometer, Centimeter, Millimeter, Micrometer, Nanometer, Mile, Yard, Foot, Inch, Nautical Mile.
+  - Area: Square Meter, Square Kilometer, Hectare, Acre, Square Mile, Square Yard, Square Foot, Square Inch.
+  - Volume: Liter, Milliliter, Cubic Meter, Gallon (US), Quart, Pint, Cup, Fluid Ounce.
+  - Mass: Kilogram, Gram, Milligram, Metric Ton, Pound, Ounce, Carat.
+  - Temperature: Celsius (°C), Fahrenheit (°F), Kelvin (K) with exact offset conversions.
+  - Speed: m/s, km/h, mph, knot, ft/s.
+  - Time: Second, Millisecond, Minute, Hour, Day, Week, Year.
+  - Data Storage: Byte, Kilobyte (1024 B), Megabyte (1024 KB), Gigabyte (1024 MB), Terabyte, Petabyte.
+- **Controls**: Dedicated numeric keypad, bidirectional unit swap, and one-tap clipboard copy.
 
-### 5. Security & Privacy by Design
-- **Zero Network Permissions**: `android.permission.INTERNET` is **not requested**. The OS physically prevents all network activity.
-- **No Arbitrary Code Execution**: Custom Recursive Descent Parser evaluates math safely without `eval()`, JavaScript runtimes, or dynamic reflection.
-- **Sandbox Storage**: Calculation records stay strictly inside the private app sandbox.
-- **Sanitized Clipboard**: Pasted strings are filtered through a strict whitelist (`[0-9.+\-*/×÷(),^%eπ ]`).
+### 5. Security and Privacy
+- **Zero Network Permissions**: `android.permission.INTERNET` is not requested. The operating system physically blocks all network activity.
+- **Safe Parsing**: Custom Recursive Descent Parser evaluates math safely without `eval()`, JavaScript engines, or dynamic code execution.
+- **Sandbox Storage**: Calculation records stay strictly inside the private application sandbox.
+- **Sanitized Clipboard**: Pasted strings are filtered through a strict whitelist.
 - **Zero Telemetry**: No analytics SDKs, advertising trackers, or background listeners.
 
 ---
 
-## 🏛️ Architecture
+## Architecture
 
 The codebase follows Clean Android Architecture with strict separation between Presentation, Domain, and Data layers:
 
@@ -89,11 +78,11 @@ The codebase follows Clean Android Architecture with strict separation between P
 app/src/main/java/store/strangeinfinity/calculator/
 ├── domain/
 │   ├── calculator/
-│   │   ├── ExpressionEvaluator.kt   # Recursive Descent Parser & Math Engine
-│   │   ├── NumberFormatter.kt       # Decimal128 & thousand separators
-│   │   └── CalculationResult.kt     # Sealed class for Success & Error states
+│   │   ├── ExpressionEvaluator.kt   # Recursive Descent Parser and Math Engine
+│   │   ├── NumberFormatter.kt       # Decimal128 and thousand separators
+│   │   └── CalculationResult.kt     # Sealed class for Success and Error states
 │   └── converter/
-│       └── UnitConverter.kt         # Conversion algorithms & unit definitions
+│       └── UnitConverter.kt         # Conversion algorithms and unit definitions
 ├── data/
 │   ├── history/
 │   │   ├── CalculationEntity.kt     # Room database entity
@@ -105,33 +94,33 @@ app/src/main/java/store/strangeinfinity/calculator/
 ├── ui/
 │   ├── components/
 │   │   ├── CalculatorButton.kt      # Rounded keys with haptic feedback
-│   │   ├── CalculatorDisplay.kt     # Auto-scaling expression & result area
+│   │   ├── CalculatorDisplay.kt     # Auto-scaling expression and result area
 │   │   ├── KeypadStandard.kt        # 4x5 standard arithmetic grid
-│   │   ├── KeypadScientific.kt      # Portrait slide-down & Landscape 7-column
-│   │   ├── ToolbarHandle.kt         # Middle tool row & more options menu
+│   │   ├── KeypadScientific.kt      # Expandable scientific panel
+│   │   ├── ToolbarHandle.kt         # Middle tool row and options menu
 │   │   ├── HistorySheet.kt          # Modal bottom sheet for history
-│   │   ├── UnitConverterScreen.kt   # Dedicated converter screen & keypad
+│   │   ├── UnitConverterScreen.kt   # Dedicated converter screen and keypad
 │   │   └── AboutDialog.kt           # StrangeInfinity branding dialog
 │   ├── theme/
-│   │   ├── Color.kt                 # Samsung-inspired palette (AMOLED Dark & Clean Light)
+│   │   ├── Color.kt                 # Palette (AMOLED Dark and Clean Light)
 │   │   ├── Type.kt                  # Typography hierarchy
-│   │   └── Theme.kt                 # Material 3 & custom palette composition
+│   │   └── Theme.kt                 # Material 3 and custom palette composition
 │   ├── CalculatorScreen.kt          # Root responsive screen
-│   ├── CalculatorViewModel.kt       # UI state management & event coordination
+│   ├── CalculatorViewModel.kt       # UI state management and event coordination
 │   └── ConverterViewModel.kt        # Unit converter state management
-└── MainActivity.kt                  # Edge-to-edge container & hardware key handling
+└── MainActivity.kt                  # Edge-to-edge container and hardware key handling
 ```
 
 ---
 
-## 🛠️ Building & Running
+## Building and Running
 
 ### Prerequisites
-- **JDK**: Java 17 or Java 21 (e.g. JetBrains Runtime `jbr-21`)
-- **Android SDK**: Build Tools `34.0.0`, Platforms `android-34`
-- **Gradle**: 8.10 (Gradle wrapper included)
+- JDK: Java 17 or Java 21
+- Android SDK: Build Tools `34.0.0`, Platform `android-34`
+- Gradle: 8.10 (Gradle wrapper included)
 
-### Build Tasks
+### Build Commands
 
 ```bash
 # Run automated unit test suite (17/17 tests)
@@ -143,10 +132,6 @@ app/src/main/java/store/strangeinfinity/calculator/
 # Build release APK with Lint-Vital checks
 ./gradlew assembleRelease
 ```
-
-### Generated APK Artifacts
-- **Signed Release APK**: [`app-release-signed.apk`](app-release-signed.apk) (11 MB)
-- **Debug APK**: `app/build/outputs/apk/debug/app-debug.apk` (16 MB)
 
 ### Installation via ADB
 
@@ -160,7 +145,7 @@ adb shell am start -n store.strangeinfinity.calculator/.MainActivity
 
 ---
 
-## 🧪 Automated Testing
+## Automated Testing
 
 Run the automated test suite with:
 
@@ -178,7 +163,7 @@ Verified test coverage includes:
 
 ---
 
-## 📄 License & Attribution
+## License and Attribution
 
 Developed and published under the **StrangeInfinity** brand.  
 Copyright © 2026 StrangeInfinity. All rights reserved.
