@@ -88,7 +88,7 @@ fun CalculatorDisplay(
             contentAlignment = Alignment.CenterEnd
         ) {
             Text(
-                text = if (lastEvaluated) "" else displayExpression,
+                text = displayExpression,
                 color = palette.expressionText,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Normal,

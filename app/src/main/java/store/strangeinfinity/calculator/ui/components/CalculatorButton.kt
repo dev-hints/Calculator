@@ -46,6 +46,7 @@ fun CalculatorButton(
     modifier: Modifier = Modifier,
     fontSize: TextUnit = 26.sp,
     hapticEnabled: Boolean = true,
+    aspectRatio: Float = 1.15f,
     customBgColor: Color? = null,
     customTextColor: Color? = null,
     onClick: () -> Unit
@@ -82,8 +83,8 @@ fun CalculatorButton(
 
     Box(
         modifier = modifier
-            .padding(4.dp)
-            .aspectRatio(1f)
+            .padding(3.dp)
+            .aspectRatio(aspectRatio)
             .clip(CircleShape)
             .background(currentBg)
             .clickable(

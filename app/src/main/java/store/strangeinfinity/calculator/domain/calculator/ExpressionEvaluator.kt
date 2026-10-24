@@ -160,17 +160,17 @@ class ExpressionEvaluator {
         }
 
         // Multiplicative: *, /, % (modulo / isolated percent)
-        private fun parseMultiplicative(): BigDecimal {
-            var left = parseUnary()
+        private fun parseMultiplicative(allowPercent: Boolean = true): BigDecimal {
+            var left = parseUnary(allowPercent)
 
             while (true) {
                 skipWhitespace()
                 if (pos >= length) break
                 val op = input[pos]
-                if (op != '*' && op != '/' && op != '%') {
+                if (op != '*' && op != '/') {
                     // Check for implicit multiplication: e.g. 2(3) or 2sin(30) or 2PI
                     if (canStartFactor(op)) {
-                        val right = parseUnary()
+                        val right = parseUnary(allowPercent)
                         left = left.multiply(right, MC)
                         continue
                     }
@@ -178,15 +178,10 @@ class ExpressionEvaluator {
                 }
                 pos++ // consume op
 
-                if (op == '%') {
-                    // Postfix percent: left% -> left / 100
-                    left = left.divide(BigDecimal("100"), MC)
-                    continue
-                }
+                var right = parseUnary(allowPercent = false)
 
-                var right = parseUnary()
-
-                if (peekPercent()) {
+                skipWhitespace()
+                if (pos < length && input[pos] == '%') {
                     pos++ // consume '%'
                     // A * B% = A * (B / 100)
                     // A / B% = A / (B / 100)
@@ -200,56 +195,51 @@ class ExpressionEvaluator {
                         left.divide(percentFactor, MC)
                     }
                 } else {
-                    if (op == '*') {
-                        left = left.multiply(right, MC)
+                    left = if (op == '*') {
+                        left.multiply(right, MC)
                     } else {
                         if (right.compareTo(BigDecimal.ZERO) == 0) {
                             throw ArithmeticException("Cannot divide by zero")
                         }
-                        left = left.divide(right, MC)
+                        left.divide(right, MC)
                     }
                 }
             }
             return left
         }
 
-        private fun peekPercent(): Boolean {
-            skipWhitespace()
-            return pos < length && input[pos] == '%'
-        }
-
         // Unary: +, -, functions (sin, cos, etc.)
-        private fun parseUnary(): BigDecimal {
+        private fun parseUnary(allowPercent: Boolean = true): BigDecimal {
             skipWhitespace()
             if (pos >= length) throw EvaluationException("Unexpected end of expression")
 
             if (input[pos] == '+') {
                 pos++
-                return parseUnary()
+                return parseUnary(allowPercent)
             }
             if (input[pos] == '-') {
                 pos++
-                return parseUnary().negate(MC)
+                return parseUnary(allowPercent).negate(MC)
             }
 
-            return parsePower()
+            return parsePower(allowPercent)
         }
 
         // Power: ^
-        private fun parsePower(): BigDecimal {
-            var base = parsePostfix()
+        private fun parsePower(allowPercent: Boolean = true): BigDecimal {
+            var base = parsePostfix(allowPercent)
 
             skipWhitespace()
             if (pos < length && input[pos] == '^') {
                 pos++
-                val exponent = parseUnary() // right-associative power
+                val exponent = parseUnary(allowPercent = true) // right-associative power
                 base = powerBigDecimal(base, exponent)
             }
             return base
         }
 
         // Postfix operators: ! (factorial), % (percent)
-        private fun parsePostfix(): BigDecimal {
+        private fun parsePostfix(allowPercent: Boolean = true): BigDecimal {
             var value = parsePrimary()
 
             while (true) {
@@ -259,7 +249,7 @@ class ExpressionEvaluator {
                 if (c == '!') {
                     pos++
                     value = computeFactorial(value)
-                } else if (c == '%') {
+                } else if (c == '%' && allowPercent) {
                     pos++
                     value = value.divide(BigDecimal("100"), MC)
                 } else {
@@ -283,8 +273,6 @@ class ExpressionEvaluator {
                 skipWhitespace()
                 if (pos < length && input[pos] == ')') {
                     pos++
-                } else {
-                    // Tolerated if at end during live preview
                 }
                 return value
             }
@@ -361,7 +349,6 @@ class ExpressionEvaluator {
                 }
                 "sin" -> {
                     val rad = toRadians(parseUnary().toDouble())
-                    // Fix exact zero for sin(180) etc.
                     val s = sin(rad)
                     val rounded = if (abs(s) < 1e-15) 0.0 else s
                     BigDecimal.valueOf(rounded).round(MC)
@@ -446,7 +433,6 @@ class ExpressionEvaluator {
         }
 
         private fun powerBigDecimal(base: BigDecimal, exponent: BigDecimal): BigDecimal {
-            // Check integer power
             val scale = exponent.stripTrailingZeros().scale()
             if (scale <= 0) {
                 val expInt = exponent.toBigInteger()
@@ -461,7 +447,6 @@ class ExpressionEvaluator {
                 }
             }
 
-            // Real power
             val b = base.toDouble()
             val e = exponent.toDouble()
             if (b < 0.0) throw ArithmeticException("Invalid input")
@@ -473,7 +458,7 @@ class ExpressionEvaluator {
         private fun computeFactorial(n: BigDecimal): BigDecimal {
             if (n < BigDecimal.ZERO) throw ArithmeticException("Invalid input")
             val stripped = n.stripTrailingZeros()
-            if (stripped.scale() > 0) throw ArithmeticException("Invalid input") // non-integer
+            if (stripped.scale() > 0) throw ArithmeticException("Invalid input")
 
             val intVal = stripped.toBigInteger()
             if (intVal > BigInteger.valueOf(1000)) {

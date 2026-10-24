@@ -9,6 +9,7 @@ import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -68,7 +69,8 @@ fun CalculatorScreen(
                     lastEvaluated = uiState.lastEvaluated,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(if (isLandscape) 0.6f else 1f),
+                        .weight(if (isLandscape) 0.6f else 1f)
+                        .defaultMinSize(minHeight = 120.dp),
                     onCopyResult = { calculatorViewModel.copyToClipboard(it) }
                 )
 

@@ -20,8 +20,8 @@ fun KeypadScientificPortrait(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 12.dp, vertical = 4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+            .padding(horizontal = 12.dp, vertical = 2.dp),
+        verticalArrangement = Arrangement.spacedBy(2.dp)
     ) {
         // Row 1: sin, cos, tan, log
         Row(
@@ -32,7 +32,8 @@ fun KeypadScientificPortrait(
                 text = "sin",
                 contentDesc = "Sine",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("sin") }
@@ -41,7 +42,8 @@ fun KeypadScientificPortrait(
                 text = "cos",
                 contentDesc = "Cosine",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("cos") }
@@ -50,7 +52,8 @@ fun KeypadScientificPortrait(
                 text = "tan",
                 contentDesc = "Tangent",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("tan") }
@@ -59,7 +62,8 @@ fun KeypadScientificPortrait(
                 text = "log",
                 contentDesc = "Log base 10",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("log") }
@@ -75,7 +79,8 @@ fun KeypadScientificPortrait(
                 text = "ln",
                 contentDesc = "Natural log",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("ln") }
@@ -84,7 +89,8 @@ fun KeypadScientificPortrait(
                 text = "√",
                 contentDesc = "Square root",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("√") }
@@ -93,7 +99,8 @@ fun KeypadScientificPortrait(
                 text = "x²",
                 contentDesc = "Square",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("x²") }
@@ -102,7 +109,8 @@ fun KeypadScientificPortrait(
                 text = "xʸ",
                 contentDesc = "Power",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("xʸ") }
@@ -118,7 +126,8 @@ fun KeypadScientificPortrait(
                 text = "1/x",
                 contentDesc = "Reciprocal",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("1/x") }
@@ -127,7 +136,8 @@ fun KeypadScientificPortrait(
                 text = "π",
                 contentDesc = "Pi",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("π") }
@@ -136,7 +146,8 @@ fun KeypadScientificPortrait(
                 text = "e",
                 contentDesc = "Euler's number",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("e") }
@@ -145,7 +156,8 @@ fun KeypadScientificPortrait(
                 text = "x!",
                 contentDesc = "Factorial",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
+                aspectRatio = 1.6f,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("x!") }
