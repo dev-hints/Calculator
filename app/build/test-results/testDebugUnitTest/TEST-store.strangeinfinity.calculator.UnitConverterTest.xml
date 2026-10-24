@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="store.strangeinfinity.calculator.UnitConverterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-24T15:45:16" hostname="strangeinfinity" time="0.011">
+  <properties/>
+  <testcase name="testMassConversion" classname="store.strangeinfinity.calculator.UnitConverterTest" time="0.01"/>
+  <testcase name="testLengthConversion" classname="store.strangeinfinity.calculator.UnitConverterTest" time="0.0"/>
+  <testcase name="testSpeedConversion" classname="store.strangeinfinity.calculator.UnitConverterTest" time="0.0"/>
+  <testcase name="testDataStorageConversion" classname="store.strangeinfinity.calculator.UnitConverterTest" time="0.0"/>
+  <testcase name="testTemperatureConversion" classname="store.strangeinfinity.calculator.UnitConverterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

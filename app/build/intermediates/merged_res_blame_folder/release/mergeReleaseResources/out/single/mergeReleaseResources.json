@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "store.strangeinfinity.calculator.app-release-48:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "store.strangeinfinity.calculator.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "store.strangeinfinity.calculator.app-release-48:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "store.strangeinfinity.calculator.app-main-49:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "store.strangeinfinity.calculator.app-release-48:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "store.strangeinfinity.calculator.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "store.strangeinfinity.calculator.app-release-48:/drawable_ic_launcher_background.xml.flat",
+        "source": "store.strangeinfinity.calculator.app-main-49:/drawable/ic_launcher_background.xml"
+    }
+]
