@@ -1,12 +1,14 @@
 package store.strangeinfinity.calculator.ui
 
 import android.content.res.Configuration
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.defaultMinSize
@@ -46,6 +48,18 @@ fun CalculatorScreen(
     val configuration = LocalConfiguration.current
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
+    BackHandler(enabled = uiState.isConverterOpen) {
+        calculatorViewModel.setConverterOpen(false)
+    }
+
+    BackHandler(enabled = uiState.isHistoryOpen) {
+        calculatorViewModel.setHistoryOpen(false)
+    }
+
+    BackHandler(enabled = uiState.isAboutOpen) {
+        calculatorViewModel.setAboutOpen(false)
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -67,10 +81,11 @@ fun CalculatorScreen(
                     previewResult = uiState.previewResult,
                     errorMessage = uiState.errorMessage,
                     lastEvaluated = uiState.lastEvaluated,
+                    isLandscape = isLandscape,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(if (isLandscape) 0.6f else 1f)
-                        .defaultMinSize(minHeight = 120.dp),
+                        .weight(if (isLandscape) 0.35f else if (uiState.isScientificExpanded) 0.65f else 1f)
+                        .defaultMinSize(minHeight = if (isLandscape) 40.dp else if (uiState.isScientificExpanded) 60.dp else 100.dp),
                     onCopyResult = { calculatorViewModel.copyToClipboard(it) }
                 )
 
@@ -80,6 +95,7 @@ fun CalculatorScreen(
                     angleUnit = uiState.angleUnit,
                     currentTheme = themeMode,
                     hapticEnabled = hapticEnabled,
+                    isLandscape = isLandscape,
                     onHistoryClick = { calculatorViewModel.setHistoryOpen(true) },
                     onConverterClick = { calculatorViewModel.setConverterOpen(true) },
                     onScientificToggle = { calculatorViewModel.toggleScientific() },
@@ -104,33 +120,44 @@ fun CalculatorScreen(
                         onPercent = { calculatorViewModel.onPercentage() },
                         onDecimal = { calculatorViewModel.onDecimal() },
                         onPlusMinus = { calculatorViewModel.onPlusMinus() },
-                        onEquals = { calculatorViewModel.onEquals() }
+                        onEquals = { calculatorViewModel.onEquals() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
                     )
                 } else {
-                    // Scientific keypad expansion in portrait
-                    AnimatedVisibility(
-                        visible = uiState.isScientificExpanded,
-                        enter = fadeIn() + expandVertically(),
-                        exit = fadeOut() + shrinkVertically()
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(if (uiState.isScientificExpanded) 1.35f else 1.1f),
+                        verticalArrangement = Arrangement.Bottom
                     ) {
-                        KeypadScientificPortrait(
+                        // Scientific keypad expansion in portrait
+                        AnimatedVisibility(
+                            visible = uiState.isScientificExpanded,
+                            enter = fadeIn() + expandVertically(),
+                            exit = fadeOut() + shrinkVertically()
+                        ) {
+                            KeypadScientificPortrait(
+                                hapticEnabled = hapticEnabled,
+                                onScientificFunction = { calculatorViewModel.onScientificFunction(it) }
+                            )
+                        }
+
+                        // Standard Keypad
+                        KeypadStandard(
                             hapticEnabled = hapticEnabled,
-                            onScientificFunction = { calculatorViewModel.onScientificFunction(it) }
+                            isScientificExpanded = uiState.isScientificExpanded,
+                            onDigit = { calculatorViewModel.onDigit(it) },
+                            onOperator = { calculatorViewModel.onOperator(it) },
+                            onClear = { calculatorViewModel.onClear() },
+                            onParentheses = { calculatorViewModel.onParentheses() },
+                            onPercent = { calculatorViewModel.onPercentage() },
+                            onDecimal = { calculatorViewModel.onDecimal() },
+                            onPlusMinus = { calculatorViewModel.onPlusMinus() },
+                            onEquals = { calculatorViewModel.onEquals() }
                         )
                     }
-
-                    // Standard Keypad
-                    KeypadStandard(
-                        hapticEnabled = hapticEnabled,
-                        onDigit = { calculatorViewModel.onDigit(it) },
-                        onOperator = { calculatorViewModel.onOperator(it) },
-                        onClear = { calculatorViewModel.onClear() },
-                        onParentheses = { calculatorViewModel.onParentheses() },
-                        onPercent = { calculatorViewModel.onPercentage() },
-                        onDecimal = { calculatorViewModel.onDecimal() },
-                        onPlusMinus = { calculatorViewModel.onPlusMinus() },
-                        onEquals = { calculatorViewModel.onEquals() }
-                    )
                 }
             }
         }

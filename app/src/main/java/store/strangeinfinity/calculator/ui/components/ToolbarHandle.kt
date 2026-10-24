@@ -43,6 +43,7 @@ fun ToolbarHandle(
     angleUnit: AngleUnit,
     currentTheme: ThemeMode,
     hapticEnabled: Boolean,
+    isLandscape: Boolean = false,
     onHistoryClick: () -> Unit,
     onConverterClick: () -> Unit,
     onScientificToggle: () -> Unit,
@@ -66,7 +67,7 @@ fun ToolbarHandle(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 6.dp),
+                .padding(horizontal = 16.dp, vertical = if (isLandscape) 2.dp else 6.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -102,7 +103,9 @@ fun ToolbarHandle(
 
                 IconButton(
                     onClick = onScientificToggle,
-                    modifier = Modifier.semantics { contentDescription = "Scientific mode" }
+                    modifier = Modifier.semantics {
+                        contentDescription = if (isLandscape) "Scientific mode active" else "Scientific mode"
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Calculate,
@@ -112,7 +115,9 @@ fun ToolbarHandle(
                     )
                 }
 
-                if (isScientificActive) {
+                // Show angle unit toggle in toolbar only in portrait when scientific is active
+                // In landscape, KeypadLandscape has its own dedicated Deg/Rad key on Row 1
+                if (isScientificActive && !isLandscape) {
                     Spacer(modifier = Modifier.width(6.dp))
                     IconButton(
                         onClick = onAngleUnitToggle,

@@ -37,6 +37,7 @@ fun CalculatorDisplay(
     errorMessage: String?,
     lastEvaluated: Boolean,
     modifier: Modifier = Modifier,
+    isLandscape: Boolean = false,
     onCopyResult: (String) -> Unit
 ) {
     val palette = LocalCalculatorPalette.current
@@ -59,12 +60,23 @@ fun CalculatorDisplay(
         else -> "0"
     }
 
-    val resultFontSize = when {
-        resultText.length > 16 -> 28.sp
-        resultText.length > 12 -> 34.sp
-        resultText.length > 8 -> 40.sp
-        else -> 48.sp
+    val resultFontSize = if (isLandscape) {
+        when {
+            resultText.length > 18 -> 18.sp
+            resultText.length > 12 -> 22.sp
+            resultText.length > 8 -> 26.sp
+            else -> 30.sp
+        }
+    } else {
+        when {
+            resultText.length > 16 -> 28.sp
+            resultText.length > 12 -> 34.sp
+            resultText.length > 8 -> 40.sp
+            else -> 48.sp
+        }
     }
+
+    val expressionFontSize = if (isLandscape) 18.sp else 24.sp
 
     val resultColor = when {
         errorMessage != null -> SamsungClearRed
@@ -76,7 +88,10 @@ fun CalculatorDisplay(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 24.dp, vertical = 12.dp),
+            .padding(
+                horizontal = 20.dp,
+                vertical = if (isLandscape) 4.dp else 12.dp
+            ),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.End
     ) {
@@ -90,7 +105,7 @@ fun CalculatorDisplay(
             Text(
                 text = displayExpression,
                 color = palette.expressionText,
-                fontSize = 24.sp,
+                fontSize = expressionFontSize,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.End,
                 maxLines = 1,
@@ -100,7 +115,7 @@ fun CalculatorDisplay(
             )
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(if (isLandscape) 2.dp else 8.dp))
 
         // Result / Preview Line
         Box(

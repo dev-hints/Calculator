@@ -90,7 +90,7 @@ fun AboutDialog(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Version 1.0.0",
+                    text = "Version 1.0.1",
                     fontSize = 13.sp,
                     color = palette.expressionText
                 )

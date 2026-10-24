@@ -3,8 +3,10 @@ package store.strangeinfinity.calculator.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,7 +23,7 @@ fun KeypadScientificPortrait(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 12.dp, vertical = 2.dp),
-        verticalArrangement = Arrangement.spacedBy(2.dp)
+        verticalArrangement = Arrangement.spacedBy(3.dp)
     ) {
         // Row 1: sin, cos, tan, log
         Row(
@@ -32,8 +34,10 @@ fun KeypadScientificPortrait(
                 text = "sin",
                 contentDesc = "Sine",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("sin") }
@@ -42,8 +46,10 @@ fun KeypadScientificPortrait(
                 text = "cos",
                 contentDesc = "Cosine",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("cos") }
@@ -52,8 +58,10 @@ fun KeypadScientificPortrait(
                 text = "tan",
                 contentDesc = "Tangent",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("tan") }
@@ -62,8 +70,10 @@ fun KeypadScientificPortrait(
                 text = "log",
                 contentDesc = "Log base 10",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("log") }
@@ -79,8 +89,10 @@ fun KeypadScientificPortrait(
                 text = "ln",
                 contentDesc = "Natural log",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("ln") }
@@ -89,8 +101,10 @@ fun KeypadScientificPortrait(
                 text = "√",
                 contentDesc = "Square root",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("√") }
@@ -99,8 +113,10 @@ fun KeypadScientificPortrait(
                 text = "x²",
                 contentDesc = "Square",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("x²") }
@@ -109,8 +125,10 @@ fun KeypadScientificPortrait(
                 text = "xʸ",
                 contentDesc = "Power",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("xʸ") }
@@ -126,8 +144,10 @@ fun KeypadScientificPortrait(
                 text = "1/x",
                 contentDesc = "Reciprocal",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("1/x") }
@@ -136,8 +156,10 @@ fun KeypadScientificPortrait(
                 text = "π",
                 contentDesc = "Pi",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("π") }
@@ -146,8 +168,10 @@ fun KeypadScientificPortrait(
                 text = "e",
                 contentDesc = "Euler's number",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("e") }
@@ -156,8 +180,10 @@ fun KeypadScientificPortrait(
                 text = "x!",
                 contentDesc = "Factorial",
                 type = ButtonType.FUNCTION,
-                fontSize = 17.sp,
-                aspectRatio = 1.6f,
+                fontSize = 14.sp,
+                aspectRatio = 2.2f,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
                 modifier = Modifier.weight(1f),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("x!") }
@@ -185,20 +211,27 @@ fun KeypadLandscape(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+            .padding(horizontal = 8.dp, vertical = 2.dp),
+        verticalArrangement = Arrangement.spacedBy(3.dp)
     ) {
         // Row 1: Rad/Deg, √, ∛ | C, ( ), %, ÷
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp)
         ) {
             CalculatorButton(
                 text = if (angleUnit == AngleUnit.DEGREE) "Deg" else "Rad",
                 contentDesc = "Angle mode",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onAngleToggle
             )
@@ -207,7 +240,12 @@ fun KeypadLandscape(
                 contentDesc = "Square root",
                 type = ButtonType.FUNCTION,
                 fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("√") }
             )
@@ -216,7 +254,12 @@ fun KeypadLandscape(
                 contentDesc = "Cube root",
                 type = ButtonType.FUNCTION,
                 fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("∛") }
             )
@@ -224,8 +267,13 @@ fun KeypadLandscape(
                 text = "C",
                 contentDesc = "Clear",
                 type = ButtonType.CLEAR,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onClear
             )
@@ -233,8 +281,13 @@ fun KeypadLandscape(
                 text = "( )",
                 contentDesc = "Parentheses",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 15.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onParentheses
             )
@@ -242,8 +295,13 @@ fun KeypadLandscape(
                 text = "%",
                 contentDesc = "Percentage",
                 type = ButtonType.FUNCTION,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 16.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onPercent
             )
@@ -251,8 +309,13 @@ fun KeypadLandscape(
                 text = "÷",
                 contentDesc = "Divide",
                 type = ButtonType.OPERATOR,
-                fontSize = 20.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 18.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onOperator("÷") }
             )
@@ -260,15 +323,22 @@ fun KeypadLandscape(
 
         // Row 2: sin, cos, tan | 7, 8, 9, ×
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp)
         ) {
             CalculatorButton(
                 text = "sin",
                 contentDesc = "Sine",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("sin") }
             )
@@ -276,8 +346,13 @@ fun KeypadLandscape(
                 text = "cos",
                 contentDesc = "Cosine",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("cos") }
             )
@@ -285,8 +360,13 @@ fun KeypadLandscape(
                 text = "tan",
                 contentDesc = "Tangent",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("tan") }
             )
@@ -294,8 +374,13 @@ fun KeypadLandscape(
                 text = "7",
                 contentDesc = "7",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("7") }
             )
@@ -303,8 +388,13 @@ fun KeypadLandscape(
                 text = "8",
                 contentDesc = "8",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("8") }
             )
@@ -312,8 +402,13 @@ fun KeypadLandscape(
                 text = "9",
                 contentDesc = "9",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("9") }
             )
@@ -321,8 +416,13 @@ fun KeypadLandscape(
                 text = "×",
                 contentDesc = "Multiply",
                 type = ButtonType.OPERATOR,
-                fontSize = 20.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 18.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onOperator("×") }
             )
@@ -330,15 +430,22 @@ fun KeypadLandscape(
 
         // Row 3: ln, log, 1/x | 4, 5, 6, −
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp)
         ) {
             CalculatorButton(
                 text = "ln",
                 contentDesc = "Natural log",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("ln") }
             )
@@ -346,8 +453,13 @@ fun KeypadLandscape(
                 text = "log",
                 contentDesc = "Log 10",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("log") }
             )
@@ -355,8 +467,13 @@ fun KeypadLandscape(
                 text = "1/x",
                 contentDesc = "Reciprocal",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("1/x") }
             )
@@ -364,8 +481,13 @@ fun KeypadLandscape(
                 text = "4",
                 contentDesc = "4",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("4") }
             )
@@ -373,8 +495,13 @@ fun KeypadLandscape(
                 text = "5",
                 contentDesc = "5",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("5") }
             )
@@ -382,8 +509,13 @@ fun KeypadLandscape(
                 text = "6",
                 contentDesc = "6",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("6") }
             )
@@ -391,8 +523,13 @@ fun KeypadLandscape(
                 text = "−",
                 contentDesc = "Minus",
                 type = ButtonType.OPERATOR,
-                fontSize = 20.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 18.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onOperator("−") }
             )
@@ -400,15 +537,22 @@ fun KeypadLandscape(
 
         // Row 4: eˣ, x², xʸ | 1, 2, 3, +
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp)
         ) {
             CalculatorButton(
                 text = "eˣ",
                 contentDesc = "e to power",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("eˣ") }
             )
@@ -416,8 +560,13 @@ fun KeypadLandscape(
                 text = "x²",
                 contentDesc = "Square",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("x²") }
             )
@@ -425,8 +574,13 @@ fun KeypadLandscape(
                 text = "xʸ",
                 contentDesc = "Power",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("xʸ") }
             )
@@ -434,8 +588,13 @@ fun KeypadLandscape(
                 text = "1",
                 contentDesc = "1",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("1") }
             )
@@ -443,8 +602,13 @@ fun KeypadLandscape(
                 text = "2",
                 contentDesc = "2",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("2") }
             )
@@ -452,8 +616,13 @@ fun KeypadLandscape(
                 text = "3",
                 contentDesc = "3",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("3") }
             )
@@ -461,8 +630,13 @@ fun KeypadLandscape(
                 text = "+",
                 contentDesc = "Plus",
                 type = ButtonType.OPERATOR,
-                fontSize = 20.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 18.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onOperator("+") }
             )
@@ -470,15 +644,22 @@ fun KeypadLandscape(
 
         // Row 5: |x|, π, e | +/−, 0, ., =
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp)
         ) {
             CalculatorButton(
                 text = "|x|",
                 contentDesc = "Absolute value",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("|x|") }
             )
@@ -486,8 +667,13 @@ fun KeypadLandscape(
                 text = "π",
                 contentDesc = "Pi",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("π") }
             )
@@ -495,8 +681,13 @@ fun KeypadLandscape(
                 text = "e",
                 contentDesc = "Euler's number",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onScientificFunction("e") }
             )
@@ -504,8 +695,13 @@ fun KeypadLandscape(
                 text = "+/−",
                 contentDesc = "Plus minus",
                 type = ButtonType.FUNCTION,
-                fontSize = 16.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 14.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onPlusMinus
             )
@@ -513,8 +709,13 @@ fun KeypadLandscape(
                 text = "0",
                 contentDesc = "0",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = { onDigit("0") }
             )
@@ -522,8 +723,13 @@ fun KeypadLandscape(
                 text = ".",
                 contentDesc = "Decimal point",
                 type = ButtonType.NUMBER,
-                fontSize = 18.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 17.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onDecimal
             )
@@ -531,8 +737,13 @@ fun KeypadLandscape(
                 text = "=",
                 contentDesc = "Equals",
                 type = ButtonType.EQUALS,
-                fontSize = 20.sp,
-                modifier = Modifier.weight(1f),
+                fontSize = 18.sp,
+                aspectRatio = null,
+                shape = RoundedCornerShape(percent = 50),
+                contentPadding = 1.dp,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 hapticEnabled = hapticEnabled,
                 onClick = onEquals
             )

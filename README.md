@@ -1,5 +1,7 @@
 # Calculator — StrangeInfinity
 
+[![Download APK](https://img.shields.io/badge/Download-Release%20APK-00C853?style=for-the-badge&logo=android)](https://github.com/dev-hints/Calculator/releases/latest/download/app-release-signed.apk)
+
 [![Android](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%2B)-3DDC84.svg?style=flat&logo=android)](https://developer.android.com)
 [![Target SDK](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-34A853.svg?style=flat)](https://developer.android.com)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
@@ -13,9 +15,9 @@ A precision-crafted native Android calculator application developed under the **
 
 ## Screenshots
 
-| Standard Calculator | Scientific Mode | Unit Converter |
-| :---: | :---: | :---: |
-| <img src="screenshots/calculator-calculation.png" width="220" /> | <img src="screenshots/calculator-scientific.png" width="220" /> | <img src="screenshots/calculator-conversion.png" width="220" /> |
+| Standard Calculator | Scientific Mode | Unit Converter | Landscape Mode |
+| :---: | :---: | :---: | :---: |
+| <img src="screenshots/calculator-calculation.png" width="180" /> | <img src="screenshots/calculator-scientific.png" width="180" /> | <img src="screenshots/calculator-conversion.png" width="180" /> | <img src="screenshots/calculator-landscape.png" width="280" /> |
 
 ---
 
